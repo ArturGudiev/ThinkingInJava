@@ -1,0 +1,26 @@
+package holding11;
+
+/**
+ * Created by 1 on 13.12.2016.
+ */
+import java.util.*;
+
+import static java.util.Arrays.asList;
+
+class Snow{}
+class Powder extends Snow{}
+class Light extends Powder{}
+class Heavy extends Powder{}
+class Crusty extends Snow{}
+class Slush extends Snow{}
+
+
+public class AsListInference {
+    public static void main(String[] args) {
+        List<Snow> snow1 = asList(new Crusty(), new Slush(), new Powder());
+        List<Snow> snow2 = asList(new Light(), new Heavy());
+        List<Snow> snow3 = new ArrayList<Snow>();
+        Collections.addAll(snow3, new Light(), new Heavy());
+        List<Snow> snow4 = Arrays.<Snow>asList(new Light(), new Heavy());
+    }
+}
