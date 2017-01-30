@@ -1,0 +1,22 @@
+1 package io16;
+2 
+3 /**
+4  * Created by 1 on 28.01.2017.
+5  */
+6 import java.io.*;
+7 
+8 public class BasicFileOutput {
+9     static String file = "BasicFileOutput.out";
+10 
+11     public static void main(String[] args) throws IOException{
+12         BufferedReader in = new BufferedReader(new StringReader(BufferedInputFile.read("BasicFileOutput.java")));
+13         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+14         int lineCount = 1;
+15         String s;
+16         while((s = in.readLine()) != null){
+17             out.println(lineCount++ + " " + s);
+18         }
+19         out.close();
+20         System.out.println(BufferedInputFile.read(file));
+21     }
+22 }

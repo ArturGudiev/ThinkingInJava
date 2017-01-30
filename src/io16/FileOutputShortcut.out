@@ -1,0 +1,22 @@
+1 package io16;
+2 
+3 /**
+4  * Created by 1 on 28.01.2017.
+5  */
+6 import java.io.*;
+7 
+8 public class FileOutputShortcut {
+9     static String file = "FileOutputShortcut.out";
+10     public static void main(String[] args) throws IOException{
+11         BufferedReader in = new BufferedReader(new StringReader(BufferedInputFile.read("FileOutputShortcut.java")));
+12         PrintWriter out = new PrintWriter(file);
+13         int lineCount = 1;
+14         String s;
+15         while((s = in.readLine()) != null){
+16             out.println(lineCount++ + " " + s);
+17         }
+18         out.close();
+19         System.out.println(BufferedInputFile.read(file));
+20 
+21     }
+22 }
